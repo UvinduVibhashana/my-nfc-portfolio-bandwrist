@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Smart NFC Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fe;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #0070f3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 15px;
+        }
+        .badge {
+            background: #e1f0ff;
+            color: #0070f3;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="avatar">👨‍💻</div>
+        <h2 id="userName">Loading...</h2>
+        <p id="userRole" style="color: #666;">CS Student</p>
+        <p id="userBio">Welcome to my smart profile!</p>
+
+        <!-- NFC Hardware UID eka meke pennanawa -->
+        <div class="badge">
+            NFC UID: <span id="uidDisplay">Fetching...</span>
+        </div>
+    </div>
+
+    <script>
+        // URL eken UID eka ganna logic eka (e.g. site.com?uid=04A28B123456)
+        const urlParams = new URLSearchParams(window.location.search);
+        const uid = urlParams.get('uid') || "DEMO-12345";
+
+        // Sample Data (Testing sadaha)
+        document.getElementById('uidDisplay').innerText = uid;
+        document.getElementById('userName').innerText = "My Name";
+        document.getElementById('userBio').innerText = "I am a CS student learning smart NFC systems!";
+    </script>
+
+</body>
+</html>
