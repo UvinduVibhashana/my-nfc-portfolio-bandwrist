@@ -71,7 +71,7 @@
 </head>
 <body>
 
-    <div class="profile-card" id="card-content" style="display: none;">
+    <div class="profile-card" id="card-content" style="display: block;">
         <img id="user-img" class="profile-pic" src="" alt="Profile Picture">
         <h1 id="user-name" class="name"></h1>
         <p id="user-bio" class="bio"></p>
@@ -81,8 +81,9 @@
     <p id="loading">Loading Profile...</p>
     <p id="error-msg">Profile not found or invalid NFC tag!</p>
 
-    <script>
+     <script>
         // Database එකක් නැති නිසා දැනට පාවිච්චි කරන සාම්පල් දත්ත
+         /*
         const dummyDatabase = {
             "101": {
                 name: "Uvindu Vibhashana",
