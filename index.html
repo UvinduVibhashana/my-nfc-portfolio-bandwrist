@@ -169,6 +169,27 @@
             margin: 0 15px 25px;
             text-align: center;
         }
+        .edit-profile-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 35px;
+            height: 35px;
+            background-color: #f4f6f8;
+            color: #6a7489;
+            border: none;
+            border-radius: 50%;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .edit-profile-btn:hover {
+            background-color: #1c2331;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -176,6 +197,9 @@
     <div class="mobile-container">
         <!-- Cover Image -->
         <div class="cover-image"></div>
+        
+        <!-- Edit Button -->
+            <button class="edit-profile-btn" title="Edit Profile"><i class="fa-solid fa-pen"></i></button>
         
         <div class="profile-content">
             <!-- Profile Picture -->
