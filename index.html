@@ -4,72 +4,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Smart NFC Portfolio</title>
+    <!-- Icons ගෙනාවෙ මෙතනින් -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7fe;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
-        }
-        .avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #0070f3;
-            color: white;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 32px;
-            margin: 0 auto 15px;
+            align-items: flex-start;
+            min-height: 100vh;
         }
-        .badge {
+
+        .mobile-container {
+            background-color: white;
+            width: 100%;
+            max-width: 400px;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 180px;
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-content {
+            padding: 0 20px 20px;
+            text-align: center;
+            position: relative;
+            background: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: -30px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: -55px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 10px 0 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .title {
+            color: #666;
+            margin: 5px 0 15px;
+            font-size: 14px;
+        }
+
+        .uid-badge {
+            display: inline-block;
             background: #e1f0ff;
             color: #0070f3;
-            padding: 6px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .subscribe-btn {
+            background-color: #1c2331;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f4f6f8;
+            color: #6a7489;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #1c2331;
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            background-color: #1c2331;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="avatar">👨‍💻</div>
-        <h2 id="userName">Loading...</h2>
-        <p id="userRole" style="color: #666;">CS Student</p>
-        <p id="userBio">Welcome to my smart profile!</p>
+    <div class="mobile-container">
+        <!-- Cover Image -->
+        <div class="cover-image"></div>
+        
+        <div class="profile-content">
+            <!-- Profile Picture -->
+            <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" alt="Profile">
+            
+            <h1 id="userName">Emily Johnson</h1>
+            <p class="title" id="userRole">Professional Photographer</p>
+            
+            <!-- NFC UID Display -->
+            <div class="uid-badge">NFC UID: <span id="uidDisplay">DEMO-12345</span></div>
 
-        <!-- NFC Hardware UID eka meke pennanawa -->
-        <div class="badge">
-            NFC UID: <span id="uidDisplay">Fetching...</span>
+            <!-- Subscribe Button -->
+            <br>
+            <button class="subscribe-btn"><i class="fa-regular fa-bell"></i> Subscribe</button>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn"><i class="fa-regular fa-envelope"></i> Email</button>
+                <button class="action-btn"><i class="fa-solid fa-phone"></i> Call</button>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1516483638261-f4085ee6bd0f?q=80&w=500&auto=format&fit=crop" alt="Gallery Image 1">
+                <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=500&auto=format&fit=crop" alt="Gallery Image 2">
+                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=500&auto=format&fit=crop" alt="Gallery Image 3">
+                <img src="https://images.unsplash.com/photo-1504609774571-002779872584?q=80&w=500&auto=format&fit=crop" alt="Gallery Image 4">
+            </div>
         </div>
     </div>
 
+    <!-- Script for NFC UID -->
     <script>
-        // URL eken UID eka ganna logic eka (e.g. site.com?uid=04A28B123456)
         const urlParams = new URLSearchParams(window.location.search);
-        const uid = urlParams.get('uid') || "DEMO-12345";
-
-        // Sample Data (Testing sadaha)
-        document.getElementById('uidDisplay').innerText = uid;
-        document.getElementById('userName').innerText = "My Name";
-        document.getElementById('userBio').innerText = "I am a CS student learning smart NFC systems!";
+        const uid = urlParams.get('uid');
+        if (uid) {
+            document.getElementById('uidDisplay').innerText = uid;
+        }
     </script>
 
 </body>
